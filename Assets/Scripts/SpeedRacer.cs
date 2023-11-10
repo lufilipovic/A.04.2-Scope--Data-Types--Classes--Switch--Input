@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class SpeedRacer : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class SpeedRacer : MonoBehaviour
     public bool isCarTypeSedan = false;
     public bool hasFrontEngine = true;
 
+    public TextMeshProUGUI textUI;
 
     void Start()
     {
@@ -59,24 +61,27 @@ public class SpeedRacer : MonoBehaviour
         
     }
 
-    void ConsumeFuel()
+    public void ConsumeFuel()
     {
         carFuel.fuelLevel = carFuel.fuelLevel - 10;
 
     }
 
-    void CheckFuelLevel()
+    public void CheckFuelLevel()
     {
         switch(carFuel.fuelLevel)
         {
             case 70:
                 print("fuel level is nearing two-thirds.");
+                textUI.text = "fuel level is nearing two-thirds.";
                 break;
             case 50:
                 print("fuel level is at half amount.");
+                textUI.text = "fuel level is at half amount.";
                 break;
             case 10:
                 print("Warning! Fuel level is critically low.");
+                textUI.text = "Warning! Fuel level is critically low..";
                 break;
             default:
                 print("Nothing to report.");
